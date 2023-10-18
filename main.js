@@ -35,12 +35,40 @@ const posterClosure = (function(){
 //index changing
 const infoTextRender=function(index){
   const targetData = getPopular[index];
-  console.log(targetData);
+  const starRate = (targetData.vote_average/2).toFixed(1);
+  let renderStarCount=0;
+  let starCount = {full : Math.floor(parseFloat(starRate)),};
+  let starHtml = '';
+
+  if (parseFloat(starRate)-Math.floor(parseFloat(starRate))===0){
+    starCount['half']=false;
+  } else{
+    parseFloat(starRate)-Math.floor(parseFloat(starRate))>=0.5 ? starCount['half']=true : starCount['half']=false;
+  }
+
+  while (renderStarCount<5){
+    if (renderStarCount<starCount['full']){
+      starHtml+=`<img src="./iconImage/full-star.svg" />`;
+      renderStarCount++;
+      continue;
+    } 
+    if (starCount['half']){
+      starHtml+=`<img src="./iconImage/half-star.svg" />`;
+      starCount['half'] = false;
+      renderStarCount++;
+      continue;
+    } else{
+      starHtml+=`<img src="./iconImage/empty-star.svg" />`;
+      renderStarCount++;
+      continue;
+    }
+  }
 
   $infoTitle.innerText = targetData.title;
-  $starText.innerText =(targetData.vote_average/2).toFixed(1);
+  $starText.innerText =starRate;
+  $starImage.innerHTML=starHtml;
   $overview.innerText =targetData.overview;
-  
+
 }
 
 // main carousel render movie

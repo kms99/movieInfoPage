@@ -158,3 +158,19 @@
     width: 10rem;
     cursor: pointer;
 }
+
+@media screen and (max-width:50rem) {
+    .main-info__grid{
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        'poster'
+        'text';
+        justify-items: center;
+    }
+    .main-info__texts{
+        justify-self: center;
+        margin-top: 2rem;
+    }
+    
+}
