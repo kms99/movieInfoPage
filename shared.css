@@ -28,7 +28,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 3;
 }
 .main-header__title{
     display: flex;
@@ -74,12 +74,13 @@ footer{
     bottom: 0;
     left: 0;
     right: 0;
-    box-shadow: -2px -2px 4px 2px black;
+    box-shadow: -2px -2px 5px 5px black;
     background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('./image/footer-background.jpg') center;
     height: 12rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 3;
 }
 
 .main-footer__projectInfo{
@@ -115,4 +116,50 @@ footer{
 }
 .main-footer__link div img{
     margin-right: 1rem;
+}
+
+
+
+
+
+@media screen and (max-width:50rem) {
+    .main-header{
+        height: 8rem;
+    }
+    .main-header__title div img{
+        zoom: 50%;
+    }
+    .main-header__title h1{
+        display: inline-block;
+        font-size: 3rem;
+        margin: 0 0 0 1rem;
+        height: 100%;
+        vertical-align: middle;
+    }
+    
+    .main-header__searchArea-icon{
+        zoom: 50%;
+    }
+
+    .main-header__searchArea-icon:hover,
+    .main-header__searchArea-icon:active{
+        zoom: 70%;
+    }
+
+    footer{
+        justify-content: flex-end;
+        
+    }
+    .main-footer__links{
+        flex-direction: column;
+        font-size: 1.5rem;
+        margin: 1rem 1rem;
+    }
+    .main-footer__link{
+        margin: 0.5rem 1rem;
+    }
+    .main-footer__link div img{
+        zoom: 50%;
+    }
+    
 }
