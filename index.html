@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Mov_Ie</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="main-header__title" id="main-header__title">
+        <div><img src="./iconImage/title-icon.svg" /></div>
+        <h1>Mov_Ie</h1>
+      </div>
+      <div class="main-header__searchArea" id="main-header__searchArea">
+        <img
+          class="main-header__searchArea-icon"
+          id="search-btn"
+          src="./iconImage/search.svg"
+        />
+      </div>
+    </header>
+
+    <main class="main-info wrapper">
+      <div class="main-info__title">
+        <img src="./iconImage/main-subtitle.svg" alt="" />
+        <span>Popular Movie</span>
+      </div>
+      <div class="main-info__grid">
+        <div class="carousel-container">
+          <div class="main-info__carousel">
+            <div class="main-info__carousel-Items" id="carousel-item-container">
+              <div class="main-info__carousel-Item">
+                <img
+                  src="https://img.vogue.co.kr/vogue/2020/03/style_5e7da0efac0a5.jpg"
+                />
+              </div>
+            </div>
+
+            <div class="carousel-button-prev"><img src="./iconImage/left_carousel.svg"></div>
+            <div class="carousel-button-next"><img src="./iconImage/right_carousel.svg"></div>
+          </div>
+        </div>
+
+        <div class="main-info__texts">
+          <div class="main-info__texts-title">
+            <span id="movie-info-title">Title</span>
+          </div>
+          <div class="main-info__texts-rate">
+            <div class="main-info__texts-starRate" id="starRate-image">
+              <img src="./iconImage/full-star.svg" />
+              <img src="./iconImage/full-star.svg" />
+              <img src="./iconImage/full-star.svg" />
+              <img src="./iconImage/half-star.svg" />
+              <img src="./iconImage/empty-star.svg" />
+            </div>
+            <span id="starRate-text"> 3.5 </span>
+          </div>
+
+          <div class="main-info__texts-overview" id="overview">
+            모든 인류를 위협할 새로운 무기를 추적하게 된 에단 헌트와 IMF팀은 이
+            무기가 인류의 미래를 통제할 수 있다는 사실을 알게 된다. 전 세계가
+            위태로운 상황에 처한 가운데, 이를 추적하던 에단 헌트에게 어둠의
+            세력까지 접근하고 마침내 미스터리하고 강력한 빌런과 마주하게 된 그는
+            가장 위험한 작전을 앞두고 자신이 아끼는 사람들의 생명과 중요한 임무
+            사이에서 선택을 해야 하는 상황에 놓이게 되는데…
+          </div>
+          <div class="main-info__buttonArea">
+            <button id="trailer-btn">Trailer</button>
+            <button id="review-btn">Reviews</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="main-footer__projectInfo">
+        <div>내일배움캠프 개인과제</div>
+        <div>영화 정보 페이지</div>
+      </div>
+      <div class="main-footer__links">
+        <div class="main-footer__link">
+          <a href="https://github.com/kms99">
+            <div><img src="./iconImage/github.svg" />Repository</div>
+          </a>
+        </div>
+        <div class="main-footer__link">
+          <a href="https://audtjqxx.tistory.com/">
+            <div><img src="./iconImage/tistory.svg" />Blog</div>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js" type="module"></script>
+    <script src="tmdbAPI.js" type="module"></script>
+  </body>
+</html>

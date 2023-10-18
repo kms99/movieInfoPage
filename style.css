@@ -1,0 +1,160 @@
+/* main style */
+.wrapper{
+    box-sizing: border-box;
+    height: 100%;
+    padding: 12rem 0;
+    background: url('./image/main-background.jpg') center/cover;
+    background-attachment: fixed;
+    overflow-y: scroll;
+}
+.wrapper::-webkit-scrollbar{
+    width: 0;
+}
+
+.main-info__title{
+    font-size: 3.5rem;
+    text-align: center;
+    margin: 3rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-info__title img{
+    margin-right : 1rem;
+}
+
+.main-info__grid{
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    'poster text';
+    justify-items: end;
+}
+.carousel-container{
+    grid-area: poster;
+    margin-right: 2rem;  
+}
+
+.main-info__carousel-Item img{
+    height: 45rem;
+    width:35rem;
+}
+
+.main-info__texts{
+    grid-area: text;
+    justify-self: start;
+
+    position: relative;
+}
+
+.main-info__texts-title{
+    font-size: 4rem;
+}
+.main-info__texts-title span{
+    display: inline-block;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 53rem;
+}
+
+.main-info__texts-rate{
+    font-size: 3.5rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.main-info__texts-starRate:first-child{
+    margin-right: 1rem;
+}
+
+.main-info__texts-overview{
+    font-size: 3rem;
+    width: 53rem;
+    max-height: 25rem;
+    overflow-y:scroll;
+    margin-bottom: 1rem;
+}
+
+.main-info__texts-overview::-webkit-scrollbar {
+    width: 8px;  /* 스크롤바의 너비 */
+}
+.main-info__texts-overview::-webkit-scrollbar-thumb {
+    width: 8px;  /* 스크롤바의 너비 */
+    height: 30%; /* 스크롤바의 길이 */
+    background: #820201; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+
+.main-info__buttonArea{
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.main-info__buttonArea>button{
+    width: 20rem;
+    height: 6rem;
+    border: 5px white solid;
+    border-radius: 1rem;
+    background: transparent;
+    color: white;
+    font-family: inherit;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.main-info__buttonArea>button:hover,
+.main-info__buttonArea>button:active{
+    background-color: white;
+    color: black;
+}
+
+
+
+/* carousel custom */
+.main-info__carousel {
+    position: relative;
+    width: 35rem;
+    height: 45rem;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.main-info__carousel-Items{
+    display: flex;
+    position: relative;
+    transition: all 0.5s;
+    right: 0rem;
+}
+
+.carousel-button-prev{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 10rem;
+    cursor: pointer;
+
+}
+.carousel-button-next{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 10rem;
+    cursor: pointer;
+}
