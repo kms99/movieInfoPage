@@ -3,9 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../shared.css" />
+    <link rel="stylesheet" href="search.css" />
+    <title>Mov_Ie - Search Movie!</title>
 </head>
 <body>
-    
+    <header class="main-header">
+        <div class="main-header__title" id="main-header__title">
+          <div><img src="../iconImage/title-icon.svg" /></div>
+          <h1>Mov_Ie</h1>
+        </div>
+        <div class="main-header__searchArea" id="main-header__searchArea">
+          <img
+            class="main-header__searchArea-icon"
+            id="search-btn"
+            src="../iconImage/search.svg"
+          />
+        </div>
+      </header>
+
+      <main class="main-search wrapper">
+        <h1 class="main-search__title">원하는 영화를 검색하세요.</h1>
+        <h2 class="main-search__successCheck"></h2>
+        <form class="main-search__form">
+            <fieldset class="main-search__form-area">
+                <legend class="hide">검색창</legend>
+                <input type="text" class="main-search__form-input" autofocus>
+                <button type="submit" class="main-search__form-submitBtn"><img src="../iconImage/searchPage_searchBtn.svg"></button>
+            </fieldset>
+        </form>
+      </main>
+
+      <footer>
+        <div class="main-footer__projectInfo">
+          <div>내일배움캠프 개인과제</div>
+          <div>영화 정보 페이지</div>
+        </div>
+        <div class="main-footer__links">
+          <div class="main-footer__link">
+            <a href="https://github.com/kms99">
+              <div><img src="../iconImage/github.svg" />Repository</div>
+            </a>
+          </div>
+          <div class="main-footer__link">
+            <a href="https://audtjqxx.tistory.com/">
+              <div><img src="../iconImage/tistory.svg" />Blog</div>
+            </a>
+          </div>
+        </div>
+      </footer>
+
+      <script type="module" src="search.js"></script>
+      <script type="module" src="../tmdbAPI.js"></script>
 </body>
 </html>

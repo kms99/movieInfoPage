@@ -248,7 +248,7 @@
     font-size: 1.5rem;
 }
 
-@media screen and (max-width:50rem) {
+@media screen and (max-width:60rem) {
     .wrapper{
         padding: 8rem 0 12rem 0;
     }
@@ -271,6 +271,11 @@
     }
     .main-info__texts-title{
         width: 90vw;
+        text-align: center;
+    }
+    .main-info__texts-rate{
+        display: flex;
+        justify-content: center;
     }
     .main-info__texts-title span{
         font-size: 3rem;

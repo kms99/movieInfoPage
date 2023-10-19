@@ -7,6 +7,16 @@ body {
     width: 100%;
     height: 100%;
 }
+/* 기능 명시 hide 클래스 */
+.hide{
+    position: absolute;
+    left: -1;
+    top:-1;
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+    width: 0;
+    height: 0;
+}
 
 html {
     font-size: 62.5%;
@@ -119,10 +129,7 @@ footer{
 }
 
 
-
-
-
-@media screen and (max-width:50rem) {
+@media screen and (max-width:60rem) {
     .main-header{
         height: 8rem;
     }
