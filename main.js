@@ -34,14 +34,6 @@ const checkQuery = async function(id_check){
 }
 
 const getMoviesData = await checkQuery(id);
-// Get movie data
-// const getMoviesData = checkQuery(id);
-
-// const getMoviesData=await getData(`https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=1`);
-
-// console.log(id);
-// const getMoviesData = await getData(`https://api.themoviedb.org/3/movie/${id}?language=ko-KR`);
-// console.log(getMoviesData);
 
 // carousel Index Closure
 const posterClosure = (function () {
@@ -66,9 +58,7 @@ const posterClosure = (function () {
 // carousel 인덱스를 이용한 메인페이지 text 랜더링
 const infoTextRender = async function (index) {
   // 현재 인덱스에 따른 데이터 가져오기
-  console.log(getMoviesData);
   const targetData = getMoviesData[index];
-  console.log(targetData);
   // StarRate 이미지 로직
   let renderStarCount = 0;
   const starRate = (targetData.vote_average / 2).toFixed(1);
@@ -147,11 +137,9 @@ const infoTextRender = async function (index) {
 // popular API 데이터를 이용한 carousel Item 생성 및 랜더링
 const renderPoster = (movies) => {
 
-  console.log(movies)
   if (!Array.isArray(movies)) {
     movies=[movies];
   }
-  console.log(movies)
 
   let renderHtml = "";
   movies.forEach((movie) => {

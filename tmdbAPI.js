@@ -11,7 +11,6 @@ export async function getData(url){
   try{
     const response = await fetch(url,options);
     const data = await response.json();
-    console.log(data);
     return data.results;
   }catch(err){
     console.log(`err==>>'${err}`);
