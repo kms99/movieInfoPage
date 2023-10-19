@@ -1,0 +1,156 @@
+.wrapper {
+  position: fixed;
+  top: 12rem;
+  bottom: 12rem;
+  left: 0;
+  right: 0;
+  padding: 5rem 0;
+  box-sizing: border-box;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../image/search-background.jpg") center/cover;
+  background-attachment: fixed;
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wrapper::-webkit-scrollbar {
+  width: 0;
+}
+
+.main-movies__title {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom:3rem;
+}
+
+.main-movies__currentSelect {
+    display: none;
+    position: absolute;
+    left: 1rem;
+    bottom: -6rem;
+    color: #820201;
+    font-size: 3rem;
+    background: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.main-movies__items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 100%;
+  justify-content: center
+}
+
+.main-movie__item-flip {
+  width: 35rem;
+  height: 45rem;
+  perspective: 1100px;
+  margin: 0 auto 0 auto;
+  cursor: pointer;
+}
+
+.main-movie__card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: 0.4s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  border: 3px solid #820201;
+}
+
+.front{
+    background-position: center;
+    background-size: cover;
+}
+
+.back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 4rem;
+}
+
+.card-movieName {
+  font-size: 3rem;
+  display: inline-block;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.card-rate{
+    display: flex;
+    font-size: 2rem;
+    align-items: center;
+    
+    margin-bottom: 3rem;
+}
+
+.card-rateText{
+    margin-left: 1rem;
+}
+
+.card-contents {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: gray;
+
+  width: 100%;
+  height: 30rem;
+  font-size: 2rem;
+  overflow: hidden;
+  overflow-y: scroll;
+  word-break: break-all;
+}
+.card-contents::-webkit-scrollbar {
+  width: 3px; /* 스크롤바의 너비 */
+}
+.card-contents::-webkit-scrollbar-thumb {
+  width: 3px; /* 스크롤바의 너비 */
+  height: 30%; /* 스크롤바의 길이 */
+  background: #ffffff; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+.main-movie__item-flip:hover .main-movie__card {
+  transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 60rem) {
+  .main-movies__items {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem;
+    width: 80%;
+  }
+  .wrapper {
+    top: 8rem;
+  }
+
+  .main-movies__title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom:3rem;
+  }
+  
+}

@@ -87,6 +87,7 @@ footer{
     box-shadow: -2px -2px 5px 5px black;
     background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('./image/footer-background.jpg') center;
     height: 12rem;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;

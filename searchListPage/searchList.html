@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../shared.css" />
+    <link rel="stylesheet" href="./searchList.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="main-header__title" id="main-header__title">
+        <div><img src="../iconImage/title-icon.svg" /></div>
+        <h1>Mov_Ie</h1>
+      </div>
+      <div class="main-header__searchArea" id="main-header__searchArea">
+        <img
+          class="main-header__searchArea-icon"
+          id="search-btn"
+          src="../iconImage/search.svg"
+        />
+      </div>
+      <div class="main-movies__currentSelect">
+        제목: <span id="currentTitle"></span> / ID: <span id="currentId"></span>
+      </div>
+    </header>
+
+    <main class="main-movies wrapper">
+      <div class="main-movies__title">검색한 영화 개수 <span>4</span>개</div>
+      <div class="main-movies__items"></div>
+    </main>
+
+    <footer>
+      <div class="main-footer__projectInfo">
+        <div>내일배움캠프 개인과제</div>
+        <div>영화 정보 페이지</div>
+      </div>
+      <div class="main-footer__links">
+        <div class="main-footer__link">
+          <a href="https://github.com/kms99">
+            <div><img src="../iconImage/github.svg" />Repository</div>
+          </a>
+        </div>
+        <div class="main-footer__link">
+          <a href="https://audtjqxx.tistory.com/">
+            <div><img src="../iconImage/tistory.svg" />Blog</div>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="../tmdbAPI.js"></script>
+    <script type="module" src="./searchList.js"></script>
+  </body>
+</html>

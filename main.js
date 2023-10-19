@@ -1,4 +1,4 @@
-import { getData } from "./tmdbAPI.js";
+import { getData, getSingleData } from "./tmdbAPI.js";
 
 const $mainTitle = document.getElementById("main-header__title");
 const $searchBtn = document.getElementById("main-header__searchArea");
@@ -16,11 +16,32 @@ const $reviewContainer = document.querySelector(".review-area__container");
 const $reviewCloseBtn = document.getElementById("review-closeBtn");
 const $reviewLists = document.querySelector(".review-area__lists");
 const $reviewNums = document.getElementById("review-nums");
+const $mainInfoTitle = document.querySelector(".main-info__title span");
 
-// Get popular movie data
-const getPopular = await getData(
-  "https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=1"
-);
+
+const urlSearchParams = new URLSearchParams(window.location.search);
+const id = urlSearchParams.get("q");
+
+const checkQuery = async function(id_check){
+  
+  if (Boolean(id_check)) {
+    let data = [await getSingleData(`https://api.themoviedb.org/3/movie/${id_check}?language=ko-KR`)];
+    return data;
+  }else{
+    let data = await getData(`https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=1`);
+    return data;
+  }
+}
+
+const getMoviesData = await checkQuery(id);
+// Get movie data
+// const getMoviesData = checkQuery(id);
+
+// const getMoviesData=await getData(`https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=1`);
+
+// console.log(id);
+// const getMoviesData = await getData(`https://api.themoviedb.org/3/movie/${id}?language=ko-KR`);
+// console.log(getMoviesData);
 
 // carousel Index Closure
 const posterClosure = (function () {
@@ -36,7 +57,7 @@ const posterClosure = (function () {
         index = 0;
         return index;
       case "lastIndex":
-        index = getPopular.length - 1;
+        index = getMoviesData.length - 1;
         return index;
     }
   };
@@ -45,8 +66,9 @@ const posterClosure = (function () {
 // carousel 인덱스를 이용한 메인페이지 text 랜더링
 const infoTextRender = async function (index) {
   // 현재 인덱스에 따른 데이터 가져오기
-  const targetData = getPopular[index];
-
+  console.log(getMoviesData);
+  const targetData = getMoviesData[index];
+  console.log(targetData);
   // StarRate 이미지 로직
   let renderStarCount = 0;
   const starRate = (targetData.vote_average / 2).toFixed(1);
@@ -83,7 +105,9 @@ const infoTextRender = async function (index) {
   $infoTitle.innerText = targetData.title;
   $starText.innerText = starRate;
   $starImage.innerHTML = starHtml;
-  $overview.innerText = targetData.overview?targetData.overview: "등록된 정보가 없습니다.";
+  $overview.innerText = targetData.overview
+    ? targetData.overview
+    : "등록된 정보가 없습니다.";
 
   // 현재 인덱스 정보의 id 값을 이용한 Trailer, Reviews API 호출
   const getTrailer = await getData(
@@ -122,6 +146,13 @@ const infoTextRender = async function (index) {
 
 // popular API 데이터를 이용한 carousel Item 생성 및 랜더링
 const renderPoster = (movies) => {
+
+  console.log(movies)
+  if (!Array.isArray(movies)) {
+    movies=[movies];
+  }
+  console.log(movies)
+
   let renderHtml = "";
   movies.forEach((movie) => {
     renderHtml += `
@@ -148,7 +179,7 @@ const carouselBtnEvent = function (value) {
       infoTextRender(posterClosure("next"));
       return;
     } else if (
-      (getPopular.length - 1) * 35 ===
+      (getMoviesData.length - 1) * 35 ===
       parseInt($carouselContainer.style.right.replace("rem", ""))
     ) {
       $carouselContainer.style.right = "0rem";
@@ -168,7 +199,7 @@ const carouselBtnEvent = function (value) {
       !$carouselContainer.style.right ||
       $carouselContainer.style.right === "0rem"
     ) {
-      $carouselContainer.style.right = `${(getPopular.length - 1) * 35}rem`;
+      $carouselContainer.style.right = `${(getMoviesData.length - 1) * 35}rem`;
       infoTextRender(posterClosure("lastIndex"));
       return;
     } else {
@@ -193,7 +224,14 @@ const reviewCloseEvent = function () {
 
 // 코드 실행 부
 // 최초 랜더링
-renderPoster(getPopular);
+renderPoster(getMoviesData);
+
+// 검색데이터일시
+if(getMoviesData.length===1){
+  $nextBtn.style.display='none';
+  $prevBtn.style.display='none';
+  $mainInfoTitle.innerText='Search Movie'
+}
 
 
 // 버튼 이벤트 처리
@@ -206,7 +244,6 @@ $nextBtn.addEventListener("click", function () {
 $prevBtn.addEventListener("click", function () {
   carouselBtnEvent("prev");
 });
-
 
 // Trailer 버튼
 $trailerBtn.addEventListener("click", function () {

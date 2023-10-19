@@ -1,9 +1,11 @@
 /* main style */
 .wrapper{
-    position: relative;
+    position: fixed;
+    top:12rem;
+    bottom: 12rem;
+    left: 0;
+    right: 0;
     box-sizing: border-box;
-    height: 100%;
-    padding: 12rem 0;
     background: url('./image/main-background.jpg') center/cover;
     background-attachment: fixed;
     overflow-y: scroll;
@@ -250,7 +252,7 @@
 
 @media screen and (max-width:60rem) {
     .wrapper{
-        padding: 8rem 0 12rem 0;
+        top:8rem;
     }
     .main-info__grid{
         grid-template-columns: auto; 

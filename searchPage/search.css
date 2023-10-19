@@ -1,8 +1,12 @@
 .wrapper{
-    position: relative;
+    position: fixed;
+    top:12rem;
+    bottom: 12rem;
+    left: 0;
+    right: 0;
+    padding: 5rem 0;
     box-sizing: border-box;
-    height: 100%;
-    padding: 12rem 0;
+    
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../image/search-background.jpg') center/cover;
     background-attachment: fixed;
     overflow-y: scroll;
@@ -66,13 +70,6 @@
     border-left: 1px solid #ffffff50;
 }
 
-.main-search__form-submitBtn img{
-    /* position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0; */
-}
 
 /* 미디어 쿼리 선언은 HTML 글꼴크기가 이닌 브라우저 기본크기를 기반으로 한다. 16px */
 @media screen and (max-width:60rem) {
@@ -98,5 +95,10 @@
     }
     .main-search__form-submitBtn img{
         zoom: 50%;
+    }
+
+    .wrapper{
+        top:8rem;
+        bottom: 12rem;
     }
 }

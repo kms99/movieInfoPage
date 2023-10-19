@@ -8,7 +8,22 @@ const options = {
 
 
 export async function getData(url){
+  try{
     const response = await fetch(url,options);
     const data = await response.json();
+    console.log(data);
     return data.results;
+  }catch(err){
+    console.log(`err==>>'${err}`);
+  }
+}
+
+export async function getSingleData(url){
+  try{
+    const response = await fetch(url,options);
+    const data = await response.json();
+    return data;
+  }catch(err){
+    console.log(`err==>>'${err}`);
+  }
 }
