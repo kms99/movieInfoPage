@@ -1,4 +1,5 @@
 import { getData } from "../tmdbAPI.js";
+import { imagePath } from "../shared.js";
 
 const $mainTitle = document.getElementById("main-header__title");
 const $searchBtn = document.getElementById("main-header__searchArea");
@@ -34,6 +35,7 @@ const addCard = () => {
     }
 
     while (renderStarCount < 5) {
+      
       if (renderStarCount < starCount["full"]) {
         starHtml += `<img src="../iconImage/card-star_full.svg" />`;
         renderStarCount++;
@@ -54,8 +56,8 @@ const addCard = () => {
     <div class="main-movie__item" data-id="${movie.id}" data-title="${movie.title}">
             <div class="main-movie__item-flip">
               <div class="main-movie__card">
-                <div class="front" style="background-image:url('https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}')"></div>
-                <div class="back" style="background:linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}'); background-position: center; background-size: cover;">
+                <div class="front" style="background-image:url('${imagePath(movie.poster_path)}')"></div>
+                <div class="back" style="background:linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('${imagePath(movie.poster_path)}'); background-position: center; background-size: cover;">
                   <div class="card-movieName">${movie.title}</div>
                   <div class='card-rate'>
                       <div class="card-rateStar">

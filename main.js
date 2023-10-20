@@ -1,4 +1,5 @@
 import { getData, getSingleData } from "./tmdbAPI.js";
+import { imagePath } from "./shared.js";
 
 const $mainTitle = document.getElementById("main-header__title");
 const $searchBtn = document.getElementById("main-header__searchArea");
@@ -28,7 +29,7 @@ const checkQuery = async function(id_check){
     let data = [await getSingleData(`https://api.themoviedb.org/3/movie/${id_check}?language=ko-KR`)];
     return data;
   }else{
-    let data = await getData(`https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=1`);
+    let data = await getData(`https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=1`);
     return data;
   }
 }
@@ -143,9 +144,11 @@ const renderPoster = (movies) => {
 
   let renderHtml = "";
   movies.forEach((movie) => {
+    console.log(movie.poster_path);
+    const image_Path = imagePath(movie.poster_path);
     renderHtml += `
     <div class="main-info__carousel-Item swiper-slide">
-      <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}"/>
+      <img src="${image_Path}"/>
     </div>
     `;
   });
