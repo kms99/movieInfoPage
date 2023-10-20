@@ -24,7 +24,6 @@ const urlSearchParams = new URLSearchParams(window.location.search);
 const id = urlSearchParams.get("q");
 
 const checkQuery = async function(id_check){
-  
   if (Boolean(id_check)) {
     let data = [await getSingleData(`https://api.themoviedb.org/3/movie/${id_check}?language=ko-KR`)];
     return data;
@@ -144,7 +143,6 @@ const renderPoster = (movies) => {
 
   let renderHtml = "";
   movies.forEach((movie) => {
-    console.log(movie.poster_path);
     const image_Path = imagePath(movie.poster_path);
     renderHtml += `
     <div class="main-info__carousel-Item swiper-slide">
