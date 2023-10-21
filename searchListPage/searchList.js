@@ -10,7 +10,7 @@ const $currentSelectId = document.getElementById("currentId");
 const $currentSelect = document.querySelector(".main-movies__currentSelect");
 
 // queryString 값 확인
-const searchKeyword =  new URLSearchParams(window.location.search).urlSearchParams.get("q");
+const searchKeyword =  new URLSearchParams(window.location.search).get("q");
 
 // queryString의 값을 가져와 search api 호출 
 const moviesList = await getData(
