@@ -112,7 +112,6 @@ const infoTextRender = async function (index) {
 
 // movie 데이터를 이용한 carousel Item 생성 및 랜더링
 const renderPoster = (movies) => {
-  console.log(movies)
   // 단일 영화가 들어왔을 때
   if (movies.length===1) {
     //캐러쉘 버튼 비활성화, 타이틀 변경
@@ -198,12 +197,6 @@ const reviewCloseEvent = function () {
   }, 500);
 };
 
-// <<<<<<<코드 실행 부>>>>>>>>>>
-// 영화 데이터 값 가져오기
-const getMoviesData = await checkQuery(id);
-// 최초 랜더링
-renderPoster(getMoviesData);
-
 // 버튼 이벤트 처리
 // Carousel Button
 // Carousel next 버튼
@@ -251,3 +244,9 @@ $mainTitle.addEventListener("click", () => {
 $searchBtn.addEventListener("click", () => {
   window.location.href = "./searchPage/search.html";
 });
+
+// <<<<<<<코드 실행 부>>>>>>>>>>
+// 영화 데이터 값 가져오기
+const getMoviesData = await checkQuery(id);
+// 최초 랜더링
+renderPoster(getMoviesData);
