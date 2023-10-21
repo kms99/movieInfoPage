@@ -12,11 +12,10 @@
 - Vanilla JS
 
 ## 와이어 프레임
-
 ![image](https://github.com/kms99/movieInfoPage/assets/29966870/8b1116b8-6e6d-4984-b1ae-38629295c416)
 
 ## 시연 
-https://github.com/kms99/movieInfoPage/blob/8852cc776b7f4b2b4fda50c3441f0c8b1ae74b7f/ezgif.com-video-to-gif%20(5).gif
+![image](https://github.com/kms99/movieInfoPage/blob/8852cc776b7f4b2b4fda50c3441f0c8b1ae74b7f/ezgif.com-video-to-gif%20(5).gif)
 
 ## 주요 기능
 - 공통 기능
