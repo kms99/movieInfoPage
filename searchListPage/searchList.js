@@ -1,5 +1,5 @@
 import { getData } from "../tmdbAPI.js";
-import { imagePath } from "../shared.js";
+import { imagePath, starRateHtml } from "../shared.js";
 
 const $mainTitle = document.getElementById("main-header__title");
 const $searchBtn = document.getElementById("main-header__searchArea");
@@ -21,37 +21,8 @@ const addCard = () => {
   let cardHtml = "";
   moviesList.forEach((movie) => {
     // StarRate 이미지 로직
-    let renderStarCount = 0;
     const starRate = (movie.vote_average / 2).toFixed(1);
-    let starCount = { full: Math.floor(parseFloat(starRate)) };
-    let starHtml = "";
-
-    if (parseFloat(starRate) - Math.floor(parseFloat(starRate)) === 0) {
-      starCount["half"] = false;
-    } else {
-      parseFloat(starRate) - Math.floor(parseFloat(starRate)) >= 0.5
-        ? (starCount["half"] = true)
-        : (starCount["half"] = false);
-    }
-
-    while (renderStarCount < 5) {
-      
-      if (renderStarCount < starCount["full"]) {
-        starHtml += `<img src="../iconImage/card-star_full.svg" />`;
-        renderStarCount++;
-        continue;
-      }
-      if (starCount["half"]) {
-        starHtml += `<img src="../iconImage/card-star_half.svg" />`;
-        starCount["half"] = false;
-        renderStarCount++;
-        continue;
-      } else {
-        starHtml += `<img src="../iconImage/card-star_empty.svg" />`;
-        renderStarCount++;
-        continue;
-      }
-    }
+    const starHtml = starRateHtml(starRate);
     cardHtml += `
     <div class="main-movie__item" data-id="${movie.id}" data-title="${movie.title}">
             <div class="main-movie__item-flip">
@@ -102,6 +73,6 @@ $movieItem.forEach(function (item) {
     $currentSelect.style.display = "none";
   });
   item.addEventListener("click", function () {
-    window.location.href = `../index.html?q=${item.dataset["id"]}`;
+    window.location.href = `../index.html?id=${item.dataset["id"]}`;
   });
 });
