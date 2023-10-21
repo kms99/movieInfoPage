@@ -16,7 +16,7 @@
 ![image](https://github.com/kms99/movieInfoPage/assets/29966870/8b1116b8-6e6d-4984-b1ae-38629295c416)
 
 ## 시연 
-<img src='https://github.com/kms99/movieInfoPage/blob/780ab29e90c9a5c9c0ae3d3cdcc8259910402c25/ezgif.com-video-to-gif%20(5).gif'/>
+https://github.com/kms99/movieInfoPage/blob/8852cc776b7f4b2b4fda50c3441f0c8b1ae74b7f/ezgif.com-video-to-gif%20(5).gif
 
 ## 주요 기능
 - 공통 기능
