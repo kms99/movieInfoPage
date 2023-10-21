@@ -61,6 +61,9 @@ $searchBtn.addEventListener("click", () => {
   window.location.href = "../searchPage/search.html";
 });
 
+// <<<<<<<코드 실행 부>>>>>>>>>>
+addCard();
+
 // 영화 카드 이벤트
 const $movieItem = document.querySelectorAll(".main-movie__item");
 
@@ -83,5 +86,3 @@ $movieItem.forEach(function (item) {
   });
 });
 
-// <<<<<<<코드 실행 부>>>>>>>>>>
-addCard();
