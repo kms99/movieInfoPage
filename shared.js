@@ -14,9 +14,7 @@ export const starRateHtml = function (rate) {
   if (parseFloat(rate) - Math.floor(parseFloat(rate)) === 0) {
     starCount["half"] = false;
   } else {
-    parseFloat(rate) - Math.floor(parseFloat(rate)) >= 0.5
-      ? (starCount["half"] = true)
-      : (starCount["half"] = false);
+    parseFloat(rate) - Math.floor(parseFloat(rate)) >= 0.5 ? (starCount["half"] = true) : (starCount["half"] = false);
   }
 
   while (renderStarCount < 5) {

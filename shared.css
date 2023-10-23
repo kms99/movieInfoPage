@@ -1,173 +1,169 @@
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&display=swap");
 
 html,
 body {
-    margin:0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 /* 기능 명시 hide 클래스 */
-.hide{
-    position: absolute;
-    left: -1;
-    top:-1;
-    clip: rect(0,0,0,0);
-    overflow: hidden;
-    width: 0;
-    height: 0;
+.hide {
+  position: absolute;
+  left: -1;
+  top: -1;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  width: 0;
+  height: 0;
 }
 
 html {
-    font-size: 62.5%;
-    font-family:'Caprasimo';
-    color: white;
+  font-size: 62.5%;
+  font-family: "Caprasimo";
+  color: white;
 }
 
 /* header style */
-.main-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #820201;
-    box-shadow: 2px 2px 4px 2px black;
-    text-align: center;
-    height: 12rem;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 3;
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #820201;
+  box-shadow: 2px 2px 4px 2px black;
+  text-align: center;
+  height: 12rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
 }
-.main-header__title{
-    display: flex;
-    cursor: pointer;
-    color: black;
+.main-header__title {
+  display: flex;
+  cursor: pointer;
+  color: black;
 }
-.main-header__title>div{
-    display: flex;
-    align-items: center;
+.main-header__title > div {
+  display: flex;
+  align-items: center;
 }
 .main-header__title:hover,
-.main-header__title:active{
-    color: white;
+.main-header__title:active {
+  color: white;
 }
-.main-header__title h1{
-    display: inline-block;
-    font-size: 6rem;
-    margin: 0 0 0 2rem;
-    height: 100%;
-    vertical-align: middle;
+.main-header__title h1 {
+  display: inline-block;
+  font-size: 6rem;
+  margin: 0 0 0 2rem;
+  height: 100%;
+  vertical-align: middle;
 }
-.main-header__searchArea{
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 4rem;
-    cursor: pointer;
+.main-header__searchArea {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 4rem;
+  cursor: pointer;
 }
-.main-header__searchArea-icon{
-    transition: 0.5;
+.main-header__searchArea-icon {
+  transition: 0.5;
 }
 .main-header__searchArea-icon:hover,
-.main-header__searchArea-icon:active{
-    zoom: 120%;
+.main-header__searchArea-icon:active {
+  zoom: 120%;
 }
-
 
 /* footer style */
-footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    box-shadow: -2px -2px 5px 5px black;
-    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('./image/footer-background.jpg') center;
-    height: 12rem;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: -2px -2px 5px 5px black;
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("./image/footer-background.jpg") center;
+  height: 12rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
 }
 
-.main-footer__projectInfo{
-    position: absolute;
-    top:2rem;
-    left: 2rem;
+.main-footer__projectInfo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 1.5rem;
+  color: #a3a3a3;
+  font-weight: bold;
+}
+
+.main-footer__links {
+  font-size: 2.5rem;
+  display: flex;
+}
+
+.main-footer__link {
+  display: flex;
+  align-items: center;
+  margin: 0 10rem;
+  cursor: pointer;
+}
+
+.main-footer__link a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #a3a3a3;
+}
+
+.main-footer__link div {
+  display: flex;
+  align-items: center;
+}
+.main-footer__link div img {
+  margin-right: 1rem;
+}
+
+@media screen and (max-width: 60rem) {
+  .main-header {
+    height: 8rem;
+  }
+  .main-header__title div img {
+    zoom: 50%;
+  }
+  .main-header__title h1 {
+    display: inline-block;
+    font-size: 3rem;
+    margin: 0 0 0 1rem;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .main-header__searchArea-icon {
+    zoom: 50%;
+  }
+
+  .main-header__searchArea-icon:hover,
+  .main-header__searchArea-icon:active {
+    zoom: 70%;
+  }
+
+  footer {
+    justify-content: flex-end;
+  }
+  .main-footer__links {
+    flex-direction: column;
     font-size: 1.5rem;
-    color :#A3A3A3;
-    font-weight: bold;
-}
-
-.main-footer__links{
-    font-size: 2.5rem;
-    display: flex;
-}
-
-.main-footer__link{   
-    display: flex;
-    align-items: center;
-    margin: 0 10rem;
-    cursor: pointer;
-}
-
-.main-footer__link a{
-    margin-left: 1rem;
-    text-decoration: none;
-    color :#A3A3A3;
-}
-
-.main-footer__link div{
-    display: flex;
-    align-items: center;
-}
-.main-footer__link div img{
-    margin-right: 1rem;
-}
-
-
-@media screen and (max-width:60rem) {
-    .main-header{
-        height: 8rem;
-    }
-    .main-header__title div img{
-        zoom: 50%;
-    }
-    .main-header__title h1{
-        display: inline-block;
-        font-size: 3rem;
-        margin: 0 0 0 1rem;
-        height: 100%;
-        vertical-align: middle;
-    }
-    
-    .main-header__searchArea-icon{
-        zoom: 50%;
-    }
-
-    .main-header__searchArea-icon:hover,
-    .main-header__searchArea-icon:active{
-        zoom: 70%;
-    }
-
-    footer{
-        justify-content: flex-end;
-        
-    }
-    .main-footer__links{
-        flex-direction: column;
-        font-size: 1.5rem;
-        margin: 1rem 1rem;
-    }
-    .main-footer__link{
-        margin: 0.5rem 1rem;
-    }
-    .main-footer__link div img{
-        zoom: 50%;
-    }
-    
+    margin: 1rem 1rem;
+  }
+  .main-footer__link {
+    margin: 0.5rem 1rem;
+  }
+  .main-footer__link div img {
+    zoom: 50%;
+  }
 }

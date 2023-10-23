@@ -23,18 +23,18 @@ const $mainInfoTitle = document.querySelector(".main-info__title span");
 const id = new URLSearchParams(window.location.search).get("id");
 
 // queryString 값 체크
-const checkQuery = async function(id_check){
+const checkQuery = async function (id_check) {
   //queryString이 있다면, searchMovie api 호출
-  if (Boolean(id_check)) { 
+  if (Boolean(id_check)) {
     let data = [await getSingleData(`https://api.themoviedb.org/3/movie/${id_check}?language=ko-KR`)];
     return data;
   }
   //queryString이 없다면, popularMovie api 호출
-  else{
+  else {
     let data = await getData(`https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=1`);
     return data;
   }
-}
+};
 // carousel Index Closure
 const posterClosure = (function () {
   let index = 0;
@@ -59,24 +59,20 @@ const posterClosure = (function () {
 const infoTextRender = async function (index) {
   // 현재 인덱스에 따른 데이터 가져오기
   const targetData = getMoviesData[index];
-  // 5점 기준 rate로 변경 및 starRate html text 가져오기 
+  // 5점 기준 rate로 변경 및 starRate html text 가져오기
   const starRate = (targetData.vote_average / 2).toFixed(1);
   const starHtml = starRateHtml(starRate);
   // 데이터 랜더링
-  $infoTitle.innerText = targetData.title?targetData.title:'등록된 제목이 없습니다.';
+  $infoTitle.innerText = targetData.title ? targetData.title : "등록된 제목이 없습니다.";
   $starText.innerText = starRate;
   $starImage.innerHTML = starHtml;
-  $overview.innerText = targetData.overview?targetData.overview: "등록된 정보가 없습니다.";
+  $overview.innerText = targetData.overview ? targetData.overview : "등록된 정보가 없습니다.";
 
   // 현재 인덱스 정보의 id 값을 이용한 Trailer, Reviews API 호출
-  const getTrailer = await getData(
-    `https://api.themoviedb.org/3/movie/${targetData.id}/videos?language=ko-KR`
-  );
-  const getReviews = await getData(
-    `https://api.themoviedb.org/3/movie/${targetData.id}/reviews?language=en-US&page=1`
-  );
+  const getTrailer = await getData(`https://api.themoviedb.org/3/movie/${targetData.id}/videos?language=ko-KR`);
+  const getReviews = await getData(`https://api.themoviedb.org/3/movie/${targetData.id}/reviews?language=en-US&page=1`);
 
-  // Trailer값 유무에 따른 버튼 예외처리 
+  // Trailer값 유무에 따른 버튼 예외처리
   // Trailer 값이 있을 때
   if (getTrailer[getTrailer.length - 1]) {
     $trailerBtn.style.display = "block";
@@ -103,7 +99,7 @@ const infoTextRender = async function (index) {
     });
     $reviewLists.innerHTML = reviewsHtml.join(" ");
     $reviewNums.innerText = getReviews.length;
-  } 
+  }
   // Reviews 값이 없을 때
   else {
     $reviewsBtn.style.display = "none";
@@ -113,11 +109,11 @@ const infoTextRender = async function (index) {
 // movie 데이터를 이용한 carousel Item 생성 및 랜더링
 const renderPoster = (movies) => {
   // 단일 영화가 들어왔을 때
-  if (movies.length===1) {
+  if (movies.length === 1) {
     //캐러쉘 버튼 비활성화, 타이틀 변경
-    $nextBtn.style.display='none';
-    $prevBtn.style.display='none';
-    $mainInfoTitle.innerText='Search Movie';
+    $nextBtn.style.display = "none";
+    $prevBtn.style.display = "none";
+    $mainInfoTitle.innerText = "Search Movie";
   }
 
   // 캐러쉘 아이템(포스터) HTML 동적생성
@@ -134,29 +130,28 @@ const renderPoster = (movies) => {
   $carouselContainer.innerHTML = renderHtml;
 
   // 최초 인덱스 TEXT 랜더링을 위한 함수 호출
-  infoTextRender(posterClosure('firstIndex'));
+  infoTextRender(posterClosure("firstIndex"));
 };
 
 // carousel Prev, Next 버튼 클릭 시 이벤트 처리
 const carouselBtnEvent = function (value) {
   // 다음버튼을 눌렀을 때
   if (value === "next") {
-    // 인덱스 0일 때 
+    // 인덱스 0일 때
     if (!$carouselContainer.style.right || $carouselContainer.style.right === "0rem") {
       $carouselContainer.style.right = "35rem";
       infoTextRender(posterClosure("next"));
       return;
-    } 
+    }
     // 인덱스 마지막 일 때 > 0번 인덱스로 이동
     else if ((getMoviesData.length - 1) * 35 === parseInt($carouselContainer.style.right.replace("rem", ""))) {
       $carouselContainer.style.right = "0rem";
       infoTextRender(posterClosure("firstIndex"));
       return;
-    } 
+    }
     // 일반적인 동작
     else {
-      const next =
-        parseInt($carouselContainer.style.right.replace("rem", "")) + 35;
+      const next = parseInt($carouselContainer.style.right.replace("rem", "")) + 35;
       $carouselContainer.style.right = `${next}rem`;
       infoTextRender(posterClosure("next"));
       return;
@@ -169,11 +164,10 @@ const carouselBtnEvent = function (value) {
       $carouselContainer.style.right = `${(getMoviesData.length - 1) * 35}rem`;
       infoTextRender(posterClosure("lastIndex"));
       return;
-    } 
+    }
     // 일반적으로 동작할 때
     else {
-      const next =
-        parseInt($carouselContainer.style.right.replace("rem", "")) - 35;
+      const next = parseInt($carouselContainer.style.right.replace("rem", "")) - 35;
       $carouselContainer.style.right = `${next}rem`;
       infoTextRender(posterClosure("prev"));
       return;

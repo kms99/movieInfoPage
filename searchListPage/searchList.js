@@ -10,9 +10,9 @@ const $currentSelectId = document.getElementById("currentId");
 const $currentSelect = document.querySelector(".main-movies__currentSelect");
 
 // queryString 값 확인
-const searchKeyword =  new URLSearchParams(window.location.search).get("q");
+const searchKeyword = new URLSearchParams(window.location.search).get("q");
 
-// queryString의 값을 가져와 search api 호출 
+// queryString의 값을 가져와 search api 호출
 const moviesList = await getData(
   `https://api.themoviedb.org/3/search/movie?query=${searchKeyword}&include_adult=false&language=ko-KR&page=1`
 );
@@ -21,17 +21,19 @@ const addCard = () => {
   $movieNum.innerText = moviesList.length;
   let cardHtml = "";
   moviesList.forEach((movie) => {
-    // 5점 기준 rate로 변경 및 starRate html text 가져오기 
+    // 5점 기준 rate로 변경 및 starRate html text 가져오기
     const starRate = (movie.vote_average / 2).toFixed(1);
     const starHtml = starRateHtml(starRate);
-    
+
     // 각각의 영화카드 HTML 동적생성
     cardHtml += `
     <div class="main-movie__item" data-id="${movie.id}" data-title="${movie.title}">
             <div class="main-movie__item-flip">
               <div class="main-movie__card">
                 <div class="front" style="background-image:url('${imagePath(movie.poster_path)}')"></div>
-                <div class="back" style="background:linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('${imagePath(movie.poster_path)}'); background-position: center; background-size: cover;">
+                <div class="back" style="background:linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('${imagePath(
+                  movie.poster_path
+                )}'); background-position: center; background-size: cover;">
                   <div class="card-movieName">${movie.title}</div>
                   <div class='card-rate'>
                       <div class="card-rateStar">
@@ -85,4 +87,3 @@ $movieItem.forEach(function (item) {
     window.location.href = `../index.html?id=${item.dataset["id"]}`;
   });
 });
-

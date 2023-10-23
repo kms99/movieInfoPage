@@ -23,19 +23,19 @@
 .main-movies__title {
   font-size: 5rem;
   font-weight: bold;
-  margin-bottom:3rem;
+  margin-bottom: 3rem;
 }
 
 .main-movies__currentSelect {
-    display: none;
-    position: absolute;
-    left: 1rem;
-    bottom: -6rem;
-    color: #820201;
-    font-size: 3rem;
-    background: rgba(0, 0, 0, 0.8);
-    box-sizing: border-box;
-    padding: 1rem;
+  display: none;
+  position: absolute;
+  left: 1rem;
+  bottom: -6rem;
+  color: #820201;
+  font-size: 3rem;
+  background: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  padding: 1rem;
 }
 
 .main-movies__items {
@@ -43,7 +43,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   width: 100%;
-  justify-content: center
+  justify-content: center;
 }
 
 .main-movie__item-flip {
@@ -75,9 +75,9 @@
   border: 3px solid #820201;
 }
 
-.front{
-    background-position: center;
-    background-size: cover;
+.front {
+  background-position: center;
+  background-size: cover;
 }
 
 .back {
@@ -91,22 +91,22 @@
 .card-movieName {
   font-size: 3rem;
   display: inline-block;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
 }
 
-.card-rate{
-    display: flex;
-    font-size: 2rem;
-    align-items: center;
-    
-    margin-bottom: 3rem;
+.card-rate {
+  display: flex;
+  font-size: 2rem;
+  align-items: center;
+
+  margin-bottom: 3rem;
 }
 
-.card-rateText{
-    margin-left: 1rem;
+.card-rateText {
+  margin-left: 1rem;
 }
 
 .card-contents {
@@ -150,7 +150,6 @@
   .main-movies__title {
     font-size: 3rem;
     font-weight: bold;
-    margin-bottom:3rem;
+    margin-bottom: 3rem;
   }
-  
 }
