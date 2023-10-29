@@ -49,8 +49,9 @@ const addCard = () => {
             </div>
           </div>
     `;
-    $movieRenderContainer.innerHTML = cardHtml;
   });
+
+  $movieRenderContainer.innerHTML = cardHtml;
 };
 
 // 페이지 변경
