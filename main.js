@@ -75,18 +75,18 @@ const infoTextRender = async function (index) {
   // Trailer값 유무에 따른 버튼 예외처리
   // Trailer 값이 있을 때
   if (getTrailer[getTrailer.length - 1]) {
-    $trailerBtn.style.display = "block";
+    $trailerBtn.classList.remove("hide");
     $trailerBtn.value = getTrailer[getTrailer.length - 1].key;
   }
   // Trailer 값이 없을 때
   else {
-    $trailerBtn.style.display = "none";
+    $trailerBtn.classList.add("hide");
   }
 
   // Reviews값 유무에 따른 예외처리
   // Reviews 값이 있을 때
   if (getReviews.length !== 0) {
-    $reviewsBtn.style.display = "block";
+    $reviewsBtn.classList.remove("hide");
     // Reviews값 HTMl 요소 동적생성
     const reviewsHtml = getReviews.map((review) => {
       const changeHtml = `
@@ -102,7 +102,7 @@ const infoTextRender = async function (index) {
   }
   // Reviews 값이 없을 때
   else {
-    $reviewsBtn.style.display = "none";
+    $reviewsBtn.classList.add("hide");
   }
 };
 
@@ -111,8 +111,8 @@ const renderPoster = (movies) => {
   // 단일 영화가 들어왔을 때
   if (movies.length === 1) {
     //캐러쉘 버튼 비활성화, 타이틀 변경
-    $nextBtn.style.display = "none";
-    $prevBtn.style.display = "none";
+    $nextBtn.classList.add("hide");
+    $prevBtn.classList.add("hide");
     $mainInfoTitle.innerText = "Search Movie";
   }
 

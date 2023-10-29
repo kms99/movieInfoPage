@@ -24,6 +24,10 @@ html {
   color: white;
 }
 
+.hide {
+  display: none;
+}
+
 /* header style */
 .main-header {
   position: fixed;
